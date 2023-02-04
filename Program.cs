@@ -1,18 +1,27 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MoviePro.Data;
+using MoviePro.Helpers;
+using MoviePro.Models.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+//var connectionString = builder.Configuration.GetSection("pgSettings")["pgConnection"];
+var connectionString = ConnectionHelper.GetConnectionString(builder.Configuration);
+var appSettings = builder.Configuration.GetSection("AppSettings");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseNpgsql(connectionString));
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddControllersWithViews();
+
+builder.Services.Configure<AppSettings>(appSettings);
 
 var app = builder.Build();
 
