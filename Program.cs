@@ -30,7 +30,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.Configure<AppSettings>(appSettings);
 builder.Services.AddScoped<IImageService, ImageService>();
 builder.Services.AddScoped<IDataMappingService, DataMappingService>();
-builder.Services.AddScoped<IRemoteMovieService, RemoteMovieService>();
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<IRemoteMovieService, TMDBMovieService>();
+
 
 var app = builder.Build();
 
