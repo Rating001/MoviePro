@@ -14,7 +14,7 @@ namespace MoviePro.Services
             throw new NotImplementedException();
         }
 
-        public Task<byte[]> EncodeImageURLAsycn(string imageURL)
+        public Task<byte[]> EncodeImageURLAsyc(string imageURL)
         {
             throw new NotImplementedException();
         }
