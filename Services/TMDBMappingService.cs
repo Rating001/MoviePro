@@ -97,11 +97,15 @@ namespace MoviePro.Services
                     });
 
                 });
+
+
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Exception in MapMovieDetailAsync: {ex.Message}");
             }
+
+            return newMovie;
         }
 
         private string BuildCastImage(string profilePath)
