@@ -31,7 +31,6 @@ builder.Services.Configure<AppSettings>(appSettings);
 
 builder.Services.AddScoped<IImageService, ImageService>();
 builder.Services.AddScoped<IDataMappingService, TMDBMappingService>();
-builder.Services.AddScoped<IDataMappingService, DataMappingService>();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IRemoteMovieService, TMDBMovieService>();
 

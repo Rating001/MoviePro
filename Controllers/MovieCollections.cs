@@ -18,7 +18,7 @@ namespace MoviePro.Controllers
 
         public async Task<IActionResult> Index(int? id)
         {
-            id ??= (await _context.Collection.FirstOrDefaultAsync(c=>c.Name.ToUpper() == "All")).Id);
+            id ??= (await _context.Collection.FirstOrDefaultAsync(c=>c.Name.ToUpper() == "All")).Id;
 
             ViewData["CollectionId"] = new SelectList(_context.Collection, "Id", "Name", id);
 
