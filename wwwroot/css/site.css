@@ -16,6 +16,17 @@ html {
 
 body {
   margin-bottom: 60px;
+  --dark-color: #000000;
+  --light-color: #ffffff;
+  --dark-grey-color:#282828;
+  --mid-grey-color:#808080;
+
+  --accent-color: #d9c800;
+  --foreground-color:var(--light-color);
+  --background-color:var(--dark-grey-color);
+
+  color:var(--foreground-color);
+  background-color:var(--background-color);
 }
 
 
@@ -36,6 +47,11 @@ body {
 
 h5.card-title {
     height: 3.1rem;
+}
+
+.card {
+    border: 1px solid #fff;
+    background-color:var(--background-color);
 }
 
 .btn-full {
@@ -87,24 +103,27 @@ h5.card-title {
 
 
 
+
 .carousel-control {
     width: var(--carouselArrowWidth-);
-
-{
-    margin: 0.2em;
+    margin: 0em;
 }
 
 .carousel-control-prev, .glyphicon-chevron-left {
-    left: 0;
+    left: -28px;
 }
 
 .carousel-control-next, .glyphicon-chevron-right {
-    right: 0;
+    right:-25px;
+
 }
 
-.carousel {
-    padding-left: var(--carouselArrowWidth- + 0.5em);
-    padding-right: var(--carouselArrowWidth- + 0.5em);
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
 }
 
 /**
@@ -116,11 +135,11 @@ h5.card-title {
     text-shadow: none;
 }
 
-    background-image: none;{
-        background-image:none;
-    }
-
 .carousel-control:hover,
 .carousel-control:focus {
     color: #999;
+}
+
+.carousel-inner {
+    margin:auto;
 }

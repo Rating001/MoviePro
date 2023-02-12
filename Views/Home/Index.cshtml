@@ -1,6 +1,4 @@
 ﻿@using MoviePro.ViewModels
-
-
 @model LandingPageVM
 
 
@@ -13,13 +11,8 @@
     <div class="row">
         <span class="btn btn-lg form-control btn-warning font-weight-bolder border-dark">UPCOMING</span>
     </div>
-    <div class="row">
-        <div class="carousel carousel-dark slide" id="carouselExampleDark" data-bs-interval="8000" data-bs-ride="carousel">
-@*            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>*@
+    <div class="row mt-1">
+        <div class="carousel carousel-dark slide" id="upcomingCarousel" data-bs-interval="8000" data-bs-ride="carousel">
             <div class="carousel-inner">
                 @{
                     var classText = "active";
@@ -45,21 +38,15 @@
                                 }
                             </div>
                         </div>
-
                         classText = "";
                     }
-
-
-
-
                 }
-
             </div>
-            <button class="carousel-control carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <button class="carousel-control carousel-control-prev" type="button" data-bs-target="#upcomingCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon carousel-control-left" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control carousel-control-next carousel-control-right" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <button class="carousel-control carousel-control-next carousel-control-right" type="button" data-bs-target="#upcomingCarousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
@@ -67,18 +54,12 @@
 
     </div>
 </section>
-
 <section class="px-4">
     <div class="row">
-        <span class="btn btn-lg form-control btn-warning font-weight-bolder border-dark">Now Playing</span>
+        <span class="btn btn-lg form-control btn-warning font-weight-bolder border-dark">NOW PLAYING</span>
     </div>
-    <div class="row">
-        <div class="carousel-dark slide" data-bs-interval="8000" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicatorsDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicatorsDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicatorsDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
+    <div class="row mt-1">
+        <div class="carousel carousel-dark slide" id="nowPlayingCarousel" data-bs-interval="8000" data-bs-ride="carousel">
             <div class="carousel-inner">
                 @{
                     classText = "active";
@@ -95,7 +76,7 @@
                                             <div class="card-body">
                                                 <h5 class="card-title clamp-title">@movie.title</h5>
                                                 <p class="card-text clamp-overview">@movie.overview</p>
-                                                <a asp-action="Details" asp-controller="Movies" asp-route-id="@movie.id" class="btn btn-warning form-control">
+                                                <a asp-action="Details" asp-controller="Movies" asp-route-id="@movie.id" class="btn btn-lg btn-warning form-control">
                                                     Details
                                                 </a>
                                             </div>
@@ -104,39 +85,28 @@
                                 }
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicatorsDark" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicatorsDark" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
                         classText = "";
                     }
-
-
-
-
                 }
-
             </div>
-
+            <button class="carousel-control carousel-control-prev" type="button" data-bs-target="#nowPlayingCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon carousel-control-left" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control carousel-control-next carousel-control-right" type="button" data-bs-target="#nowPlayingCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
+
     </div>
 </section>
-
 <section class="px-4">
     <div class="row">
-        <span class="btn btn-lg form-control btn-warning font-weight-bolder border-dark">Popular</span>
+        <span class="btn btn-lg form-control btn-warning font-weight-bolder border-dark">POPULAR</span>
     </div>
-    <div class="row">
-        <div class="carousel-dark slide" data-bs-interval="8000" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicatorsDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicatorsDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicatorsDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
+    <div class="row mt-1">
+        <div class="carousel carousel-dark slide" id="popularCarousel" data-bs-interval="8000" data-bs-ride="carousel">
             <div class="carousel-inner">
                 @{
                     classText = "active";
@@ -162,39 +132,28 @@
                                 }
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicatorsDark" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicatorsDark" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
                         classText = "";
                     }
-
-
-
-
                 }
-
             </div>
-
+            <button class="carousel-control carousel-control-prev" type="button" data-bs-target="#popularCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon carousel-control-left" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control carousel-control-next carousel-control-right" type="button" data-bs-target="#popularCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
+
     </div>
 </section>
-
 <section class="px-4">
     <div class="row">
         <span class="btn btn-lg form-control btn-warning font-weight-bolder border-dark">TOP RATED</span>
     </div>
-    <div class="row">
-        <div class="carousel-dark slide" data-bs-interval="8000" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicatorsDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicatorsDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicatorsDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
+    <div class="row mt-1">
+        <div class="carousel carousel-dark slide" id="topRatedCarousel" data-bs-interval="8000" data-bs-ride="carousel">
             <div class="carousel-inner">
                 @{
                     classText = "active";
@@ -220,37 +179,19 @@
                                 }
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicatorsDark" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicatorsDark" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
                         classText = "";
                     }
-
-
-
-
                 }
-
             </div>
-
+            <button class="carousel-control carousel-control-prev" type="button" data-bs-target="#topRatedCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon carousel-control-left" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control carousel-control-next carousel-control-right" type="button" data-bs-target="#topRatedCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
+
     </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
