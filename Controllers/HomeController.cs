@@ -41,9 +41,15 @@ namespace MoviePro.Controllers
             return View(data);
         }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> SearchIndex(string searchQuery)
         {
-            return View();
+            const int count = 16;
+            var data = new SearchPageVM()
+            {
+                SearchResults = await _tmdbMovieService.MovieSearchAsync(searchQuery, count),
+            };
+
+            return View(data);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

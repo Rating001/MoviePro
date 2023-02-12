@@ -29,7 +29,22 @@ body {
   background-color:var(--background-color);
 }
 
+header {
+    color:var(--foreground-color);
+    background-color:var(--dark-color);
+}
 
+nav {
+    color: var(--foreground-color) !important;
+}
+
+.nav-link {
+    color: var(--foreground-color) !important;
+}
+
+.search-lineup {
+    margin-top: 5px;
+}
 
 .clamp-overview {
     display: -webkit-box;
@@ -142,4 +157,9 @@ h5.card-title {
 
 .carousel-inner {
     margin:auto;
+}
+
+/*Modal Attributes*/
+.modal-content {
+    background-color:var(--background-color);
 }

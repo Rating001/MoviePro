@@ -3,11 +3,8 @@
 @inject IImageService _imageService
 @model Movie
 
-<style>
 
-</style>
-
-<div class="row">
+<div class="row mt-3">
     <div class="col-sm-12 col-md-6">
         <div class="row">
             <img src="@_imageService.DecodeImage(Model.Poster, Model.PosterType)" class="width-100" alt="Movie Image" />
@@ -65,7 +62,7 @@
     </div>
 </div>
 
-@foreach (var actor in Model.Cast.Take(5))
+@foreach (var actor in Model.Cast.Take(10))
 {
     <div class="row">
         <div class="col">
@@ -99,16 +96,26 @@
             <div class="modal-body">
                 <div class="embed-responsive embed-responsive-16by9">
                     @{
-                        //Isolate a piece of data in order to use it as the embed source
-                        var key = Model.TrailerUrl.Split("=").Last();
-                        var source = $"https://www.youtube.com/embed/{key}";
+                        if (Model.TrailerUrl != null)
+                        {
+                            //Isolate a piece of data in order to use it as the embed source
+                            var key = Model.TrailerUrl.Split("=").Last();
+                            var source = $"https://www.youtube.com/embed/{key}";
+
+                            <div class="container-iframe">
+                                <iframe class="responsive-iframe" src="@source"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                        }
+                        else
+                        {
+                            <p>There is no trailer available for this movie.</p>
+                        }
+
                     }
-                    <div class="container-iframe">
-                        <iframe class="responsive-iframe" src="@source"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                    </div>
+
 
                 </div>
                 <div class="modal-footer">

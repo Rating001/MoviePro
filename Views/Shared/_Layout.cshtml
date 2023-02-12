@@ -10,9 +10,9 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MoviePro</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Movie Pro</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -22,12 +22,34 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Collections" asp-action="Index">Collections</a>
+                        </li>
 
                     </ul>
-                    <partial name="_LoginPartial" />
+@*                    <partial name="_LoginPartial" />*@
                 </div>
             </div>
         </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-1 col-lg-2"></div>
+                <div class="col-6 d-flex justify-content-center">
+                    <form asp-action="SearchIndex" asp-controller="Home">
+                        <div class="input-group mt-3 ms-2 mb-3">
+                            <h5 class="search-lineup me-3">Movie Search: </h5>
+                            <input type="text" name="SearchQuery" class="form-control" placeholder="Search Term">
+                            <div class="search-lineup input-group-append ms-3">
+                                <button class="btn btn-dark btn-sm me-4" type="submit">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-1 col-lg-2"></div>
+            </div>
+
+        </div>
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">

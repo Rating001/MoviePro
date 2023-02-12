@@ -115,5 +115,40 @@ namespace MoviePro.Services
 
             return movieSearch;
         }
+
+        public async Task<MovieSearch> MovieSearchAsync(string searchQuery, int count)
+        {
+            //Setup a default instance of MovieSearch
+            MovieSearch movieSearch = new();
+
+            //Assemble the full request uri string
+            var query = $"{_appSettings.TmDbSettings.BaseUrl}/search/movie";
+            var queryParams = new Dictionary<string, string>()
+            {
+                {"api_key", _appSettings.MovieProSettings.TmDbApiKey },
+                {"language",_appSettings.TmDbSettings.QueryOptions.Language },
+                {"query", searchQuery },
+                {"page",_appSettings.TmDbSettings.QueryOptions.Page }
+            };
+
+            var requestUri = QueryHelpers.AddQueryString(query, queryParams);
+
+            //Create a client and execute the request
+            var client = _httpClient.CreateClient();
+            var request = new HttpRequestMessage(HttpMethod.Get, requestUri);
+            var response = await client.SendAsync(request);
+
+            //Return the MovieSearch Object
+            if (response.IsSuccessStatusCode)
+            {
+                var dcjs = new DataContractJsonSerializer(typeof(MovieSearch));
+                using var responseStream = await response.Content.ReadAsStreamAsync();
+                movieSearch = (MovieSearch)dcjs.ReadObject(responseStream);
+                movieSearch.results = movieSearch.results.Take(count).ToArray();
+                movieSearch.results.ToList().ForEach(r => r.poster_path = $"{_appSettings.TmDbSettings.BaseImagePath}/{_appSettings.MovieProSettings.DefaultPosterSize}/{r.poster_path}");
+            }
+
+            return movieSearch;
+        }
     }
 }

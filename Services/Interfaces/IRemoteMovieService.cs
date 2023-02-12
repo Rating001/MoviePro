@@ -7,6 +7,7 @@ namespace MoviePro.Services.Interfaces
     {
         Task<MovieDetail> MovieDetailAsync(int id);
         Task<MovieSearch> MovieSearchAsync(MovieCategory category, int count);
+        Task<MovieSearch> MovieSearchAsync(string searchQuery, int count);
 
         Task<ActorDetail> ActorDetailAsync(int id);
     }

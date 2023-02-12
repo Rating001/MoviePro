@@ -27,7 +27,7 @@ namespace MoviePro.Services
             await UpdateDatabaseAsync();
             await SeedRolesAsync();
             await SeedUsersAsync();
-            await SeedRolesAsync();
+            await SeedCollection();
         }
         private async Task UpdateDatabaseAsync()
         {
