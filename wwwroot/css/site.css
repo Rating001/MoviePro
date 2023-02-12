@@ -1,5 +1,6 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    --carouselArrowWidth-: 3em;
 }
 
 @media (min-width: 768px) {
@@ -84,50 +85,42 @@ h5.card-title {
 
 
 
-/*$carouselArrowWidth: 3em;
+
+
 .carousel-control {
-    width: $carouselArrowWidth;
-    .icon-prev, .icon-next, .glyphicon-chevron-left, .glyphicon-chevron-right
+    width: var(--carouselArrowWidth-);
 
 {
     margin: 0.2em;
 }
 
-.icon-prev, .glyphicon-chevron-left {
+.carousel-control-prev, .glyphicon-chevron-left {
     left: 0;
 }
 
-.icon-next, .glyphicon-chevron-right {
+.carousel-control-next, .glyphicon-chevron-right {
     right: 0;
 }
 
-}
-
 .carousel {
-    padding-left: $carouselArrowWidth + 0.5em;
-    padding-right: $carouselArrowWidth + 0.5em;
-}*/
+    padding-left: var(--carouselArrowWidth- + 0.5em);
+    padding-right: var(--carouselArrowWidth- + 0.5em);
+}
 
 /**
  * carousel control style
  */
-/*.carousel-control {
+.carousel-control {
     opacity: 1;
     color: #ccc;
     text-shadow: none;
-    &.left, &.right
-
-{
-    background-image: none;
 }
 
-}
+    background-image: none;{
+        background-image:none;
+    }
 
 .carousel-control:hover,
 .carousel-control:focus {
     color: #999;
 }
-
-.carousel {
-    height: 380px;
-}*/
