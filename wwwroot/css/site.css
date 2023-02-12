@@ -16,3 +16,118 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+
+.clamp-overview {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.clamp-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+h5.card-title {
+    height: 3.1rem;
+}
+
+.btn-full {
+    width: auto;
+}
+
+.container-iframe {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%;
+}
+
+.responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*Carousel Attributes*/
+/*#carouselExampleDark {
+    margin-left: 50px;
+    margin-right: 50px;
+}*/
+
+.carousel-control.left {
+    margin-left: -100px;
+}
+
+.carousel-control.right {
+    float:right;
+}
+
+.carousel-on-top {
+    z-index:10;
+}
+
+
+
+
+
+
+
+
+
+/*$carouselArrowWidth: 3em;
+.carousel-control {
+    width: $carouselArrowWidth;
+    .icon-prev, .icon-next, .glyphicon-chevron-left, .glyphicon-chevron-right
+
+{
+    margin: 0.2em;
+}
+
+.icon-prev, .glyphicon-chevron-left {
+    left: 0;
+}
+
+.icon-next, .glyphicon-chevron-right {
+    right: 0;
+}
+
+}
+
+.carousel {
+    padding-left: $carouselArrowWidth + 0.5em;
+    padding-right: $carouselArrowWidth + 0.5em;
+}*/
+
+/**
+ * carousel control style
+ */
+/*.carousel-control {
+    opacity: 1;
+    color: #ccc;
+    text-shadow: none;
+    &.left, &.right
+
+{
+    background-image: none;
+}
+
+}
+
+.carousel-control:hover,
+.carousel-control:focus {
+    color: #999;
+}
+
+.carousel {
+    height: 380px;
+}*/
